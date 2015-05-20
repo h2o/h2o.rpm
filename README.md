@@ -1,5 +1,9 @@
 # h2o.rpm
-for packing h2o as RPM. Work in progress.
+Recipe for packing h2o as RPM.
+
+## Installing
+
+http://software.opensuse.org/download.html?project=home%3Afunzoneq&package=h2o
 
 ## Contributing
 
