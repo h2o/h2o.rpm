@@ -33,7 +33,8 @@ make install DESTDIR=%{buildroot}
 install -p -d -m 0755 %{buildroot}/etc/h2o
 install -p -d -m 0755 %{buildroot}/var/log/h2o
 install -p -d -m 0755 %{buildroot}/var/www
-install -p -d -m 0755 %{buildroot}/var/run/h2o/
+install -p -d -m 0755 %{buildroot}/var/run/h2o
+install -p -d -m 0755 %{buildroot}/etc/systemd/system
 
 install -p -m 0644 %{SOURCE1} %{buildroot}/etc/h2o/h2o.conf
 install -p -m 0644 %{SOURCE2} %{buildroot}/var/www/index.html
