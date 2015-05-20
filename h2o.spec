@@ -7,11 +7,15 @@ Group:		System Environment/Daemons
 Source: 	https://github.com/h2o/h2o/archive/v%{version}.tar.gz
 Url: 		https://h2o.github.io/
 BuildRoot:  	%{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
-BuildRequires:	cmake, systemd, openssl-devel, gcc-c++
+BuildRequires:	cmake, openssl-devel, gcc-c++
 Requires:	perl-Server-Starter, openssl
+
+%if 0%{?fedora} >= 21
+BuildRequires: systemd
 Requires(post): systemd
 Requires(preun): systemd
 Requires(postun): systemd
+%endif
 
 Source1: 	h2o.conf
 Source2: 	index.html
@@ -43,6 +47,7 @@ install -p -m 0644 %{SOURCE3} %{buildroot}/etc/systemd/system/h2o.service
 %check
 ctest -V %{?_smp_mflags}
 
+%if 0%{?fedora} >= 21
 %post
 %systemd_post h2o.service
 
@@ -50,7 +55,8 @@ ctest -V %{?_smp_mflags}
 %systemd_preun h2o.service
 
 %postun
-%systemd_postun_with_restart h2o.service 
+%systemd_postun_with_restart h2o.service
+%endif
 
 %files
 %defattr(-,root,root)
