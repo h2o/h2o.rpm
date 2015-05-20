@@ -7,7 +7,7 @@ Group:		System Environment/Daemons
 Source: 	https://github.com/h2o/h2o/archive/v%{version}.tar.gz
 Url: 		https://h2o.github.io/
 BuildRoot:  	%{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
-BuildRequires:	cmake, systemd
+BuildRequires:	cmake, systemd, openssl-devel, gcc-c++
 Requires:	perl-Server-Starter, openssl
 Requires(post): systemd
 Requires(preun): systemd
@@ -67,5 +67,4 @@ ctest -V %{?_smp_mflags}
 %changelog
 * Wed May 20 2015 Arnoud Vermeer <a.vermeer@freshway.biz> 1.2.0-1
 - new package built with tito
-
 
