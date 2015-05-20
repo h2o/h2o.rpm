@@ -1,7 +1,7 @@
 Summary: 	H2O - The optimized HTTP/1, HTTP/2 server
 Name: 		h2o
 Version: 	1.2.0
-Release: 	0%{?dist}
+Release: 	1%{?dist}
 License: 	MIT
 Group:		System Environment/Daemons
 Source: 	https://github.com/h2o/h2o/archive/v%{version}.tar.gz
@@ -51,4 +51,7 @@ ctest -V %{?_smp_mflags}
 %dir /var/www
 
 %changelog
+* Wed May 20 2015 Arnoud Vermeer <a.vermeer@freshway.biz> 1.2.0-1
+- new package built with tito
+
 
